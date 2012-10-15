@@ -1,0 +1,16 @@
+<h1>Picmarks</h1>
+
+<p>
+  Here are some of my favorite photos
+</p>
+
+<!-- Use the @pics variable here to show a list of images. -->
+
+<ul>
+<% @pics.each do |image_url| %>
+  <li>
+    <p><a href="<%= image_url %>">Click Here</a></p>
+    <img src="<%= image_url %>" width="200" height="200">
+  </li>
+<% end %>
+</ul>
