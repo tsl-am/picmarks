@@ -7,10 +7,9 @@
 <!-- Use the @pics variable here to show a list of images. -->
 
 <ul>
-<% @pics.each do |image_url| %>
+<% @pics.each do |image_data| %>
   <li>
-    <p><a href="<%= image_url %>">Click Here</a></p>
-    <img src="<%= image_url %>" width="200" height="200">
+    <img src="<%= image_data[:url] %>" width="200" height="200">
   </li>
 <% end %>
 </ul>
