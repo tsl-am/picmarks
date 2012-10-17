@@ -13,10 +13,10 @@
 </p>
 
 <ul>
-<% @pics.each do |image_data| %>
+<% @pictures.each do |p| %>
   <li>
-    <img style="border: thick <%= @color %> solid" src="<%= image_data[:url] %>" width="<%= @width %>">
-    <p><%= image_data[:title] %><p>
+    <img style="border: thick <%= @color %> solid" src="<%= p.url %>" width="<%= @width %>">
+    <p><%= p.title %><p>
   </li>
 <% end %>
 </ul>

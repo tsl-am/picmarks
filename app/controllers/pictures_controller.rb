@@ -10,31 +10,28 @@ class PicturesController < ApplicationController
   end
   
   def index
-    @pics = picture_data
-    if params[:url]
-      p = Picture.new
-      p.url = params[:url]
-      p.title = params[:title]
-      p.save
-    end
+    @pictures = Picture.all
     @width = params[:width]
     @color = params[:color]
   end
   
-  def picture_data
-    return [
-      { :url => "http://www.trbimg.com/img-507b73f3/turbine/chi-ct-parking-meter-photo-1120121014192342/600", 
-        :title => "Parking Evil"
-      },
-      { :url => "http://www.trbimg.com/img-507b59e4/turbine/la-153334522.jpg-20121014/600",
-        :title => "Candidates"
-      },
-      { :url => "http://www.trbimg.com/img-5078b31c/turbine/ct-top-less-crowded-ruins-sites-pg-009/600",
-        :title => "Mayan Ruins"
-      }
-    ]
-  end 
+  def create
+    p = Picture.new
+    p.url = params[:url]
+    p.title = params[:title]
+    p.save
+    
+    redirect_to '/pictures'
+  end
 end
+
+
+
+
+
+
+
+
 
 
 
