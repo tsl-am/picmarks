@@ -1,15 +1,21 @@
+<style>
+  
+  body {
+    background-color: <%= @color %>;
+  }
+  
+</style>
+
 <h1>Picmarks</h1>
 
 <p>
   Here are some of my favorite photos
 </p>
 
-<!-- Use the @pics variable here to show a list of images. -->
-
 <ul>
 <% @pics.each do |image_data| %>
   <li>
-    <img src="<%= image_data[:url] %>" width="200" height="200">
+    <img style="border: thick <%= @color %> solid" src="<%= image_data[:url] %>" width="<%= @width %>">
   </li>
 <% end %>
 </ul>
