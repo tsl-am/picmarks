@@ -1,6 +1,5 @@
 class PicturesController < ApplicationController
   def new
-    
   end
   
   def show
@@ -12,11 +11,15 @@ class PicturesController < ApplicationController
   
   def index
     @pics = picture_data
+    if params[:url]
+      p = Picture.new
+      p.url = params[:url]
+      p.title = params[:title]
+      p.save
+    end
     @width = params[:width]
     @color = params[:color]
   end
-  
-  
   
   def picture_data
     return [

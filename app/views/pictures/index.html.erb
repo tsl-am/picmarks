@@ -16,6 +16,7 @@
 <% @pics.each do |image_data| %>
   <li>
     <img style="border: thick <%= @color %> solid" src="<%= image_data[:url] %>" width="<%= @width %>">
+    <p><%= image_data[:title] %><p>
   </li>
 <% end %>
 </ul>
