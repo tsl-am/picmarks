@@ -6,7 +6,7 @@
   
 </style>
 
-<h1>Picmarks</h1>
+<%= link_to "Add a New Picture", "/pictures/new" %>
 
 <p>
   Here are some of my favorite photos
@@ -15,7 +15,7 @@
 <ul>
 <% @pictures.each do |p| %>
   <li>
-    <img style="border: thick <%= @color %> solid" src="<%= p.url %>" width="<%= @width %>">
+    <%= link_to image_tag(p.url), "/pictures/#{p.id}" %>
     <p><%= p.title %><p>
   </li>
 <% end %>

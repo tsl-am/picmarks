@@ -1,2 +1,4 @@
-<h1><%= @pic[:title] %></h1>
-<img style="border: thick <%= @color %> solid" src="<%= @pic[:url] %>" width="<%= @width %>">
+<h1><%= @pic.title %></h1>
+
+<%= image_tag @pic.url, :width => 150 %>
+

@@ -3,16 +3,11 @@ class PicturesController < ApplicationController
   end
   
   def show
-    x = params[:id].to_i
-    @pic = picture_data[x - 1]
-    @width = params[:width]
-    @color = params[:color]
+    @pic = Picture.find_by_id(params[:id])
   end
   
   def index
     @pictures = Picture.all
-    @width = params[:width]
-    @color = params[:color]
   end
   
   def create
