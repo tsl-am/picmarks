@@ -1,10 +1,21 @@
 class PicturesController < ApplicationController
   
-
+  def edit
+    @picture = Picture.find_by_id(params[:id])
+  end
+  
+  def update
+    picture = Picture.find_by_id(params[:id])
+    picture.url = params[:url]
+    picture.title = params[:title]
+    picture.save
+    redirect_to picture_url(picture.id)
+  end
+  
   def destroy
     p = Picture.find_by_id(params[:id])
     p.destroy
-    redirect_to "/pictures"
+    redirect_to pictures_url
   end
   
   def new
@@ -31,7 +42,7 @@ class PicturesController < ApplicationController
     p.title = params[:title]
     p.save
     
-    redirect_to '/pictures'
+    redirect_to pictures_url
   end
 end
 

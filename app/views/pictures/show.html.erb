@@ -1,6 +1,8 @@
 <h1><%= @pic.title %></h1>
 
-<p><%= link_to "Delete", "/pictures/#{@pic.id}", :method => :delete %></p>
+<p><%= link_to "Delete", picture_url(@pic.id), :method => :delete %>
+  <%= link_to "Edit", edit_picture_url(@pic.id) %>
+  </p>
 
 <%= image_tag @pic.url, :width => 150 %>
 

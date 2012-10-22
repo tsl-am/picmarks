@@ -1,4 +1,4 @@
-<%= link_to "Add a New Picture", "/pictures/new" %>
+<%= link_to "Add a New Picture", new_picture_path %>
 
 <p>
   Here are some of my favorite photos
@@ -7,7 +7,7 @@
 <ul>
 <% @pictures.each do |p| %>
   <li>
-    <%= link_to image_tag(p.url, :width => 60), "/pictures/#{p.id}" %>
+    <%= link_to image_tag(p.url, :width => 60), picture_path(p.id) %>
     <p><%= p.title %><p>
   </li>
 <% end %>
