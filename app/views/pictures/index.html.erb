@@ -1,11 +1,3 @@
-<style>
-  
-  body {
-    background-color: <%= @color %>;
-  }
-  
-</style>
-
 <%= link_to "Add a New Picture", "/pictures/new" %>
 
 <p>
@@ -15,7 +7,7 @@
 <ul>
 <% @pictures.each do |p| %>
   <li>
-    <%= link_to image_tag(p.url), "/pictures/#{p.id}" %>
+    <%= link_to image_tag(p.url, :width => 60), "/pictures/#{p.id}" %>
     <p><%= p.title %><p>
   </li>
 <% end %>

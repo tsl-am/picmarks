@@ -1,4 +1,12 @@
 class PicturesController < ApplicationController
+  
+
+  def destroy
+    p = Picture.find_by_id(params[:id])
+    p.destroy
+    redirect_to "/pictures"
+  end
+  
   def new
   end
   
@@ -8,6 +16,13 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.all
+    
+    # Support: /pictures.json
+    respond_to do |format|
+      format.html # render 'index'
+      format.json { render :json => @pictures }
+    end
+    
   end
   
   def create
