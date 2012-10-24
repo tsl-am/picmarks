@@ -5,11 +5,10 @@ class PicturesController < ApplicationController
   end
   
   def update
-    picture = Picture.find_by_id(params[:id])
-    picture.url = params[:url]
-    picture.title = params[:title]
-    picture.save
-    redirect_to picture_url(picture.id)
+    p = Picture.find_by_id(params[:id])
+    p.update_attributes params[:picture]
+    
+    redirect_to picture_url(p.id)
   end
   
   def destroy
@@ -38,11 +37,14 @@ class PicturesController < ApplicationController
   end
   
   def create
-    p = Picture.new
-    p.url = params[:picture][:url]
-    p.title = params[:picture][:title]
-    p.save
+    # create_input = {}
+    # create_input[:url] = params[:picture][:url]
+    # create_input[:title] = params[:picture][:title]
+
+    # Picture.create create_input
     
+    Picture.create params[:picture]
+  
     redirect_to pictures_url
   end
 end

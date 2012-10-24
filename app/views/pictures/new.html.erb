@@ -1,3 +1,5 @@
+<h2>Add A New Picture</h2>
+
 <%= form_for @picture do |f| %>
   <%= f.label :url, "URL:" %>
   <%= f.text_field :url %>
@@ -5,5 +7,17 @@
   <%= f.label :title, "Title:" %>
   <%= f.text_field :title %>
   
-  <%= f.submit "Add Picture!"%>
+  <%= f.submit %>
 <% end %>
+
+<!-- def form_for(model)
+  class = model.class
+  url = class.downcase.pluralize
+  if model.id.present?
+    verb = "put"
+  else
+    verb = "post"
+  end
+  
+  return "<form action="/#{url}" method="#{verb}">"
+end -->

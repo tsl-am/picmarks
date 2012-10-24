@@ -1,12 +1,11 @@
-<h2>Edit This Picture</h2>
+<h2>Edit Picture #<%= @picture.id %></h2>
 
-<%= form_tag picture_url(@picture.id), :method => "put" do %>
-  <%= label_tag :url, "URL:" %>
-  <%= text_field_tag :url, @picture.url %>
-
-  <%= label_tag :title, "Title:" %>
-  <%= text_field_tag :title, @picture.title %>
-
-  <%= submit_tag "Save"%>
-  <%= link_to "or Cancel", pictures_url %>
+<%= form_for @picture do |f| %>
+  <%= f.label :url, "URL:" %>
+  <%= f.text_field :url %>
+  
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %>
+  
+  <%= f.submit %>
 <% end %>
