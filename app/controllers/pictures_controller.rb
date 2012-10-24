@@ -4,11 +4,18 @@ class PicturesController < ApplicationController
     @picture = Picture.find_by_id(params[:id])
   end
   
+  def show
+    @picture = Picture.find_by_id(params[:id])
+  end
+  
   def update
-    p = Picture.find_by_id(params[:id])
-    p.update_attributes params[:picture]
+    @picture = Picture.find_by_id(params[:id])
     
-    redirect_to picture_url(p.id)
+    if @picture.update_attributes(params[:picture])
+      redirect_to picture_url(@picture.id), :notice => "Picture updated successfully!"
+    else
+      render 'edit'
+    end
   end
   
   def destroy
@@ -19,10 +26,6 @@ class PicturesController < ApplicationController
   
   def new
     @picture = Picture.new
-  end
-  
-  def show
-    @pic = Picture.find_by_id(params[:id])
   end
   
   def index
@@ -37,15 +40,13 @@ class PicturesController < ApplicationController
   end
   
   def create
-    # create_input = {}
-    # create_input[:url] = params[:picture][:url]
-    # create_input[:title] = params[:picture][:title]
-
-    # Picture.create create_input
-    
-    Picture.create params[:picture]
-  
-    redirect_to pictures_url
+    @picture = Picture.new params[:picture]
+      
+    if @picture.save
+      redirect_to pictures_url, :notice => "Picture created successfully!"
+    else
+      render 'new'
+    end
   end
 end
 
