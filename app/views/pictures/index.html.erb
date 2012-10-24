@@ -9,6 +9,13 @@
   <li>
     <%= link_to image_tag(p.url, :width => 60), picture_path(p.id) %>
     <p><%= p.title %><p>
+    <nav>
+      <%= link_to 'Details', picture_url(p.id) %>
+      |
+      <%= link_to 'Edit', edit_picture_url(p.id)  %>
+      |
+      <%= link_to 'Delete', picture_url(p.id), :method => 'delete', :confirm => 'Whoa, are you sure?'  %>
+    </nav>
   </li>
 <% end %>
 </ul>

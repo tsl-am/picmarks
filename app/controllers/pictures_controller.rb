@@ -19,6 +19,7 @@ class PicturesController < ApplicationController
   end
   
   def new
+    @picture = Picture.new
   end
   
   def show
@@ -38,8 +39,8 @@ class PicturesController < ApplicationController
   
   def create
     p = Picture.new
-    p.url = params[:url]
-    p.title = params[:title]
+    p.url = params[:picture][:url]
+    p.title = params[:picture][:title]
     p.save
     
     redirect_to pictures_url
