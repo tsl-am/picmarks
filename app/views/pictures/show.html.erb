@@ -1,8 +1,11 @@
-<h1><%= @picture.title %></h1>
 
-<p><%= link_to "Delete", picture_url(@picture.id), :method => :delete %>
-  <%= link_to "Edit", edit_picture_url(@picture.id) %>
-  </p>
-
-<%= image_tag @picture.url, :width => 150 %>
-
+<div>
+  <%= image_tag @picture.url, :width => 150 %>
+  <nav>
+    <%= link_to "Back", pictures_url %>
+    |
+    <%= link_to "Delete", picture_url(@picture.id), :method => :delete %>
+    |
+    <%= link_to "Edit", edit_picture_url(@picture.id) %>
+  </nav>
+</div>

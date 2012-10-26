@@ -1,12 +1,9 @@
-<%= link_to "Add a New Picture", new_picture_path %>
-
-<%= render 'form' %>
-
 <ul>
 <% @pictures.each do |picture| %>
   <li>
     <%= link_to image_tag(picture.url, :width => 60), picture_path(picture.id) %>
     <p><%= picture.title %><p>
+    <p>Favorite? <%= picture.favorite %></p>
     <nav>
       <%= link_to 'Details', picture_url(picture.id) %>
       |
@@ -17,3 +14,5 @@
   </li>
 <% end %>
 </ul>
+
+<%= render 'form' %>

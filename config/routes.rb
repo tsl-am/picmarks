@@ -1,7 +1,6 @@
 
 Picmarks::Application.routes.draw do
 
-
   get  "/pictures"     => "pictures#index", :as => :pictures
   post "/pictures"     => 'pictures#create'
   get  "/pictures/new" => "pictures#new",   :as => :new_picture
@@ -12,7 +11,3 @@ Picmarks::Application.routes.draw do
   get    "/pictures/:id/edit" => 'pictures#edit', :as => :edit_picture
     
 end
-
-# def picture_url(id)
-#   return "/pictures/#{id}"
-# end

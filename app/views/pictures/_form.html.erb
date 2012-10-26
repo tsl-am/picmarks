@@ -1,7 +1,8 @@
+<div>
 <% if @picture.errors.messages.any? %>
   <ul>
-    <% @picture.errors.messages.each do |key, value| %>
-      <li>The <%= key %> column <%= value.first %>.</li>
+    <% @picture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
@@ -13,5 +14,10 @@
   <%= f.label :title, "Title:" %>
   <%= f.text_field :title %>
   
+  <%= f.label :favorite, "Favorite:" %>
+  <%= f.check_box :favorite %>
+  
   <%= f.submit %>
+  <%= link_to "or Cancel", pictures_url %>
 <% end %>
+</div>
