@@ -1,8 +1,6 @@
 <%= link_to "Add a New Picture", new_picture_path %>
 
-<p>
-  <%= notice %>
-</p>
+<%= render 'form' %>
 
 <ul>
 <% @pictures.each do |picture| %>
@@ -14,7 +12,7 @@
       |
       <%= link_to 'Edit', edit_picture_url(picture.id)  %>
       |
-      <%= link_to 'Delete', picture_url(picture.id), :method => 'delete', :confirm => 'Whoa, are you sure?'  %>
+      <%= link_to 'Delete', picture_url(picture.id), :method => 'delete'  %>
     </nav>
   </li>
 <% end %>

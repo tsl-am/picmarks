@@ -30,6 +30,7 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.all
+    @picture = Picture.new
     
     # Support: /pictures.json
     respond_to do |format|
@@ -40,8 +41,8 @@ class PicturesController < ApplicationController
   end
   
   def create
-    @picture = Picture.new params[:picture]
-      
+    @picture = Picture.new(params[:picture])
+    
     if @picture.save
       redirect_to pictures_url, :notice => "Picture created successfully!"
     else
